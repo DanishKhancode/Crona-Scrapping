@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 request("https://www.worldometers.info/coronavirus/", callback);
 
 
-                //err-> agr koy be error hogi to is ke ander aa jyagi
+    //err-> agr koy be error hogi to is ke ander aa jyagi
 function callback(err, res, body) {  //body -> ke ander puri html file de daga
     if (err) {
         console.log("error", err);
@@ -14,6 +14,7 @@ function callback(err, res, body) {  //body -> ke ander puri html file de daga
 }
 function handelHtml(html) {
     let selecTool = cheerio.load(html);
+    // ye (.maincounter-number) teeno number pe lagi ha  
     let cronaStatus = selecTool(".maincounter-number");
 
     let totalCase = selecTool(cronaStatus[0]).text();
